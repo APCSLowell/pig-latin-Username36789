@@ -27,22 +27,41 @@ public class PigLatin {
 	        System.out.println(pigLatin(lines[i]));
 	    }
     }
-    public int findFirstVowel(String sWord) {
-        //precondition: sWord is a valid String of length greater than 0.
-        //postcondition: returns the position of the first vowel in sWord.  If there are no vowels, returns -1
-	    // your code goes here
-        return -1;
+
+    public int findFirstVowel(String sWord){
+     //precondition: sWord is a valid String of length greater than 0.
+     //postcondition: returns the position of the first vowel in sWord.  If there are no vowels, returns -1
+     // your code goes here
+	    String vowels = "aeiou";
+	    for (int i = 0; i < sWord.length(); i++) 
+	    {
+	        if (vowels.indexOf(sWord.charAt(i)) != -1) 
+	        {
+	            return i;
+	        }
+	    }
+	    return -1;
     }
 
-    public String pigLatin(String sWord) {
-        //precondition: sWord is a valid String of length greater than 0
-        //postcondition: returns the pig latin equivalent of sWord
-        // more code should go here
-	    if(findFirstVowel(sWord) == -1) {
-		    return sWord + "ay";
+    public String pigLatin(String sWord){
+    //precondition: sWord is a valid String of length greater than 0
+    //postcondition: returns the pig latin equivalent of sWord
+    // more code should go here
+
+	    if (findFirstVowel(sWord) == -1) {
+	        return sWord + "ay"; //all consonants
 	    }
+	    
+	    else if (findFirstVowel(sWord) == 0) {
+	        return sWord + "way"; //starts with a vowel
+	    }
+	    
+	    else if (sWord.startsWith("qu")) {
+	        return sWord.substring(2) + "quay"; //starts with "qu"
+	    }
+	    
 	    else {
-		return "ERROR!";
+	        return sWord.substring(vowelPos) + sWord.substring(0, vowelPos) + "ay"; //starts with consonants
 	    }
-    }
-}//end PigLatin class
+	}
+} //end PigLatin class

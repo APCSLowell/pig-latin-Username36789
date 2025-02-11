@@ -8,8 +8,8 @@ public class PigLatin {
         // String[] lines = loadStrings("words.txt");
         String[] lines = new String[8]; 
         try{
-            //File myFile = new File("words.txt");
-	    File myFile = new File("LowellHymn.txt");
+            File myFile = new File("words.txt");
+	    //File myFile = new File("LowellHymn.txt");
             Scanner myReader = new Scanner(myFile);
             int counter = 0;
             while (myReader.hasNextLine()) {

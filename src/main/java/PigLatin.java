@@ -61,7 +61,7 @@ public class PigLatin {
 	    }
 	    
 	    else {
-	        return sWord.substring(vowelPos) + sWord.substring(0, vowelPos) + "ay"; //starts with consonants
+	        return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "ay"; //starts with consonants
 	    }
 	}
 } //end PigLatin class
